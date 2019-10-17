@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Ball : MonoBehaviour
@@ -14,5 +15,14 @@ public class Ball : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+
+        // ボールがブロックに衝突した場合、ブロックを削除する。
+        if (collision.gameObject.name.StartsWith("Block", StringComparison.Ordinal))
+            Destroy(collision.gameObject);
     }
 }
