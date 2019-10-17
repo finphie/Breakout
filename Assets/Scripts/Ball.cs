@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    Rigidbody rigid;
+
     [SerializeField]
     int speed = default;
 
     void Start()
     {
-        transform.eulerAngles = new Vector3(0, 90, 0);
-        GetComponent<Rigidbody>().AddForce(transform.forward * speed);
+        rigid = GetComponent<Rigidbody>();
+        rigid.AddForce(transform.right * speed, ForceMode.VelocityChange);
     }
 
     void Update()
@@ -21,8 +23,11 @@ public class Ball : MonoBehaviour
     {
         Debug.Log(collision.gameObject.name);
 
+        // ボールの移動速度を一定にする。
+        rigid.velocity = rigid.velocity.normalized * (speed / 2);
+
         // ボールがブロックに衝突した場合、ブロックを削除する。
         if (collision.gameObject.name.StartsWith("Block", StringComparison.Ordinal))
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject); 
     }
 }
