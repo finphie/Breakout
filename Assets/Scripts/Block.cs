@@ -7,15 +7,21 @@ public class Block : MonoBehaviour
     [SerializeField]
     Vector3 startPosition = default;
 
+    [SerializeField]
+    int blockCountX = default;
+
+    [SerializeField]
+    int blockCountZ = default;
+
     void Awake()
     {
         var position = startPosition;
 
-        for (var x = 0; x < 5; x++)
+        for (var x = 0; x < blockCountX; x++)
         {
             position.z = startPosition.z;
 
-            for (var z = 0; z < 10; z++)
+            for (var z = 0; z < blockCountZ; z++)
             {
                 Instantiate(blockPrefab, position, Quaternion.identity, transform);
 
@@ -28,7 +34,7 @@ public class Block : MonoBehaviour
 
     void Start()
     {
-        
+        GameManager.Instance.BlockCount = blockCountX * blockCountZ;
     }
 
     void Update()
