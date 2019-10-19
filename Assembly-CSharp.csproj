@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Block.cs" />
     <Compile Include="Assets\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Result.cs" />
     <Compile Include="Assets\Scripts\RuntimeInitializer.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -76,9 +77,6 @@
     </Reference>
     <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
@@ -94,9 +92,6 @@
     </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
