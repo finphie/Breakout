@@ -51,5 +51,10 @@ public class GameManager : MonoBehaviour
         => BlockCount == 0;
 
     public bool IsGameOver()
-        => ball.transform.position.x > bar.transform.position.x;
+    {
+        if (ball == null || bar == null)
+            Start();
+
+        return ball.transform.position.x > bar.transform.position.x;
+    }
 }
