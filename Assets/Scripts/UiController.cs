@@ -14,12 +14,21 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void OnSubmit(BaseEventData eventData)
         => Navigation();
 
+    static void Exit() =>
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE
+        Application.Quit();
+#endif
+
     void Navigation()
     {
         switch (gameObject.name)
         {
-            case "Top":
+            case "Title":
+                SceneManager.LoadScene("Title");
                 break;
+            case "Start":
             case "Continue":
                 SceneManager.LoadScene("Main");
                 break;
@@ -29,14 +38,5 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             default:
                 throw new ArgumentException($"GameObject: {gameObject.name}は存在しません。");
         }
-    }
-
-    void Exit()
-    {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
-        Application.Quit();
-#endif
     }
 }

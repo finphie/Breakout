@@ -38,9 +38,6 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void StartGame()
-        => SceneManager.LoadScene("Test");
-
     public void EndGame(string message)
     {
         Message = message;
