@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, ISubmitHandler
 {
+    const int Width = 640;
+    const int Height = 480;
+
     public void OnPointerEnter(PointerEventData eventData)
         => EventSystem.current.SetSelectedGameObject(gameObject);
 
@@ -37,6 +40,22 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
                 break;
             default:
                 throw new ArgumentException($"GameObject: {gameObject.name}は存在しません。");
+        }
+    }
+
+    void Update()
+    {
+        if (gameObject.scene.name == "Title" && Input.GetKeyDown(KeyCode.F11))
+        {
+            // 全画面表示からウインドウ表示に切り替え
+            if (Screen.fullScreen)
+            {
+                Screen.SetResolution(Width, Height, false);
+                return;
+            }
+
+            // ウインドウ表示から全画面表示に切り替え
+            Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
         }
     }
 }
