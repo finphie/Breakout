@@ -3,6 +3,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+#if UNITY_WEBGL
+using UnityEngine.UI;
+#endif
+
 public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, ISubmitHandler
 {
     const int Width = 640;
@@ -17,12 +24,15 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     public void OnSubmit(BaseEventData eventData)
         => Navigation();
 
+#if !UNITY_WEBGL
     static void Exit() =>
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
+        EditorApplication.isPlaying = false;
+#elif UNITY_STANDALONE || UNITY_ANDROID
         Application.Quit();
 #endif
+#endif
+
 
     void Navigation()
     {
@@ -38,14 +48,28 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             case "Continue":
                 SceneManager.LoadScene("Main");
                 break;
+#if !UNITY_WEBGL
             case "Exit":
                 Exit();
                 break;
+#endif
             default:
                 throw new ArgumentException($"GameObject: {gameObject.name}は存在しません。");
         }
     }
 
+#if UNITY_WEBGL
+    void Awake()
+    {
+        // WebGLでは「Exit」を無効化
+        var button = GetComponent<Button>().gameObject;
+
+        if (button.name == "Exit")
+            button.SetActive(false);
+    }
+#endif
+
+#if UNITY_STANDALONE
     void Update()
     {
         if (gameObject.scene.name == "Title" && Input.GetKeyDown(KeyCode.F11))
@@ -61,4 +85,5 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, true);
         }
     }
+#endif
 }
