@@ -13,6 +13,17 @@ public class Controller : MonoBehaviour
     }
     void Update()
     {
+        // 左クリックされた場合、その座標にパドルを移動
+        if (Input.GetMouseButtonDown(0))
+        {
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out var hit, Mathf.Infinity))
+            {
+                var position = new Vector3(rigid.position.x, rigid.position.y, hit.point.z);
+                rigid.MovePosition(position);
+            }
+        }
     }
 
     void FixedUpdate()
