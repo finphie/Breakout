@@ -14,8 +14,9 @@ public class Credit : MonoBehaviour
 
         scroll = GetComponentInChildren<ScrollRect>();
 
-        // スクロール位置を一番上にする。
+        // スクロール位置を一番左上にする。
         scroll.verticalNormalizedPosition = 1;
+        scroll.horizontalNormalizedPosition = 0;
     }
 
     void Update()
@@ -29,6 +30,18 @@ public class Credit : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             scroll.verticalNormalizedPosition = Mathf.Clamp(scroll.verticalNormalizedPosition - 0.05F, 0, 1);
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            scroll.horizontalNormalizedPosition = Mathf.Clamp(scroll.horizontalNormalizedPosition - 0.05F, 0, 1);
+            return;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            scroll.horizontalNormalizedPosition = Mathf.Clamp(scroll.horizontalNormalizedPosition + 0.05F, 0, 1);
             return;
         }
 
