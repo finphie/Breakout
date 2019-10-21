@@ -8,9 +8,8 @@ public class Controller : MonoBehaviour
     int speed = default;
 
     void Start()
-    {
-        rigid = GetComponent<Rigidbody>();
-    }
+        => rigid = GetComponent<Rigidbody>();
+
     void Update()
     {
         // 左クリックされた場合、その座標にパドルを移動
@@ -27,7 +26,5 @@ public class Controller : MonoBehaviour
     }
 
     void FixedUpdate()
-    {
-        rigid.velocity = speed * transform.forward * Input.GetAxisRaw("Horizontal");
-    }
+        => rigid.velocity = speed * transform.forward * Input.GetAxisRaw("Horizontal");
 }

@@ -33,11 +33,6 @@ public class GameManager : MonoBehaviour
         ball = GameObject.FindGameObjectWithTag("Ball");
     }
 
-    void Update()
-    {
-        
-    }
-
     public void EndGame(string message)
     {
         Message = message;

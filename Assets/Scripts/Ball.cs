@@ -16,11 +16,6 @@ public class Ball : MonoBehaviour
         manager = GameManager.Instance;
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);

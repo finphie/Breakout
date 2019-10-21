@@ -33,12 +33,5 @@ public class Block : MonoBehaviour
     }
 
     void Start()
-    {
-        GameManager.Instance.BlockCount = blockCountX * blockCountZ;
-    }
-
-    void Update()
-    {
-        
-    }
+        => GameManager.Instance.BlockCount = blockCountX * blockCountZ;
 }
