@@ -31,6 +31,9 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
             case "Title":
                 SceneManager.LoadScene("Title");
                 break;
+            case "Credit":
+                SceneManager.LoadScene("Credit");
+                break;
             case "Start":
             case "Continue":
                 SceneManager.LoadScene("Main");
