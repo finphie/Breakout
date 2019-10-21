@@ -8,7 +8,13 @@ public class Controller : MonoBehaviour
     int speed = default;
 
     void Start()
-        => rigid = GetComponent<Rigidbody>();
+    {
+#if UNITY_ANDROID
+        Input.backButtonLeavesApp = false;
+#endif
+
+        rigid = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {

@@ -8,6 +8,10 @@ public class Credit : MonoBehaviour
 
     void Start()
     {
+#if UNITY_ANDROID
+        Input.backButtonLeavesApp = false;
+#endif
+
         scroll = GetComponentInChildren<ScrollRect>();
 
         // スクロール位置を一番上にする。
@@ -28,7 +32,13 @@ public class Credit : MonoBehaviour
             return;
         }
 
+#if UNITY_STANDALONE
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+#elif UNITY_ANDROID
+        if (Input.GetKeyDown(KeyCode.Escape))
+#else
         if (Input.GetKeyDown(KeyCode.Return))
+#endif
             SceneManager.LoadScene("Title");
     }
 }

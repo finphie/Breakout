@@ -69,6 +69,11 @@ public class UiController : MonoBehaviour, IPointerClickHandler, IPointerEnterHa
     }
 #endif
 
+#if UNITY_ANDROID
+    void Start()
+        => Input.backButtonLeavesApp = true;
+#endif
+
 #if UNITY_STANDALONE
     void Update()
     {
