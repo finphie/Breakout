@@ -16,19 +16,19 @@ public class Credit : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             scroll.verticalNormalizedPosition = Mathf.Clamp(scroll.verticalNormalizedPosition + 0.05F, 0, 1);
             return;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             scroll.verticalNormalizedPosition = Mathf.Clamp(scroll.verticalNormalizedPosition - 0.05F, 0, 1);
             return;
         }
 
-        if (Input.GetKey(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
             SceneManager.LoadScene("Title");
     }
 }
