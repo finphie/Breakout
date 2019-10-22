@@ -6,13 +6,28 @@ Unity製ブロック崩しです。
 
 Breakoutは、Unityで開発しているシンプルなブロック崩しです。
 
+## 対応プラットフォーム
+
+700x700
+
+### PC
+
+- OS: Windows 7 SP1以降（64bit）
+- CPU: x64
+- 解像度: 640x480以上
+
+### Android
+
+- OS: Android 5.0以降
+- CPU: ARM64
+- 解像度: 640x480以上
+
+### Web
+
+- ブラウザ: Chrome/Edge/Firefox/Safari最新版（デスクトップ）
+- 解像度: 960x600以上
+
 ## 使い方
-
-### 対応プラットフォーム
-
-- Windows 7 SP1以降の64bit対応PC
-- Android 5.0以降のARM64bit対応スマートフォンやタブレット
-- Chrome/Edge/Firefox/Safari最新版
 
 ### インストール方法
 
