@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Result.cs" />
     <Compile Include="Assets\Scripts\RuntimeInitializer.cs" />
+    <Compile Include="Assets\Scripts\TableCamera.cs" />
     <Compile Include="Assets\Scripts\UiController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/User/Documents/GitHub/Breakout/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
