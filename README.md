@@ -63,7 +63,7 @@ F11（PC）|-|全画面表示の切り替え|-
 
 - Visual Studio 2019
 - Visual Studio Code
-- Unity 2019.2.9f1
+- Unity 2019.2.10f1
 
 ## 作者
 
